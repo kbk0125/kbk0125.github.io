@@ -43,16 +43,20 @@ $(document).ready(function(){
 			$('.load').show();
 		})
 
+		// This queries my sheet to find which of the listed stages you are at
 		blockspring.runParsed("query-google-spreadsheet", { 
+        	// from Google Query language https://developers.google.com/chart/interactive/docs/querylanguage
         	"query": "SELECT A, B WHERE B ="+finNum,
-        	"url": "https://docs.google.com/spreadsheets/d/14dtmo9IOuN45jbfM7_5fXpZs-Fe9Ke3KshIEm9B9go8/edit?usp=sharing" 
+        	//URL for the Google Sheet with the table
+        	"url": "YOURURLHERE" 
     	}, { cache: false, expiry: 7200}, function(res) {
+    		// all results found in res.params.data
 	  		var name=res.params.data[0]['name'];
 	  		var num=res.params.data[0]['stage'];
 
 	  		blockspring.runParsed("query-google-spreadsheet", { 
         	"query": "SELECT A, C WHERE B ="+num,
-        	"url": "https://docs.google.com/spreadsheets/d/1-WEzMahwkM_fTk2nJyfKtkg2wW6JwCB-wXVbbrpnGsg/edit?usp=sharing" 
+        	"url": "YOURURLHERE" 
 	    	}, { cache: false, expiry: 7200}, function(res) {
 		  		var skill=res.params.data[0]['skill'];
 		  		var key=res.params.data[0]['key'];
@@ -72,21 +76,33 @@ $(document).ready(function(){
 		e.preventDefault();
 		var allData =[];
 		var oneData = [];
+
+		//Filtering the form to keep only values, not corresponding labels
+		//Values must be pushed into spreadsheet in order, much like SQL insert into http://www.w3schools.com/sql/sql_insert.asp
 		var formVals= $('form :input').filter(function(index, element) {
 	        if(index < $('form :input').length-1){
 	        	oneData.push($(element).val());
 	    	}
 	    });
 	    allData.push(oneData)
+
+	    //This is taken from the Blockspring site- it is the way that spreadsheets expose their data
+	    //Would need a JSON.parse to prepare it
+	    //So we need an array of the rows
+	    //eachy array is full row
+	    //[[row1val1, row1val2],[row2val1, row2val2]...]
 	    var orig = "[[\"name\",\"random number\"],[\"Jason\",\"150\"],[\"Don\",\"250\"],[\"Paul\",\"50\"]]"
 
-		blockspring.runParsed("append-to-google-spreadsheet", { 
-			"file_id": '14dtmo9IOuN45jbfM7_5fXpZs-Fe9Ke3KshIEm9B9go8', 
-			"worksheet_id": 0, 
+		blockspring.runParsed("append-to-google-spreadsheet", {
+			//middle parameter from Google Spreadhseet URL 
+			"file_id": 'YOURIDHERE', 
+			// The first sheet in this particular doc will always be 0
+			"worksheet_id": 0,
+			//The array of arrays, as stated above 
 			"values": allData},
-			{ "api_key": "br_29767_9431ecfc28f9e8c0344e2f1e62483e7f6d9cd3af" }, 
+			//Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
+			{ "api_key": "YOURAPIKEYHERE" }, 
 			function(res){
-				console.log('done')
 				console.log(res);
 		});
 	})
