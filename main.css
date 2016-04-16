@@ -1,0 +1,189 @@
+/*http://wisdomspearl.deviantart.com/art/Color-Palette-Medieval-298891621*/
+
+p, div, table{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+p{
+	font-size: 14px;
+	margin:0;
+}
+
+h1,h2,h3,h4{
+	font-family: 'Almendra', serif;
+	font-weight: 700;
+	margin:0;
+}
+
+body{
+	margin:0;
+	padding:0;
+	background-color: #c37b7b;
+}
+
+.ctrd{
+	margin: auto;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.counter{
+	position: absolute;
+	top: 8px;
+	right:8px;
+	color:white;
+
+}
+
+.counter p{
+	display: inline-block;
+	margin: 0px 4px 0 0;
+    vertical-align: top;
+}
+
+.counter .circle{
+	background-color: white;
+	width:15px;
+	height:15px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+.introBtn{
+	width: 724px;
+	padding: 20px;
+	background-color: #334350;
+	color:#D3C8B4;
+	border-radius:8px;
+	height: 45px;
+    border-bottom: 4px solid black;
+    cursor: pointer;
+}
+
+.introBtn:hover{
+	border-bottom: 2px solid black;
+}
+
+.introBtn h1{
+	margin:0;
+	font-size:2.2em;
+}
+
+.question{
+	display: none;
+	width: 450px;
+	height:350px;
+	background-color: #D3C8B4;
+	border-radius: 4px;
+	overflow: hidden;
+	border: 2px solid #334350;
+}
+
+.question > h3{
+	text-align: center;
+	padding:8px 0;
+	background-color: #334350;
+	color:#D3C8B4;
+	margin-bottom:12px;
+}
+
+.question input{
+	cursor: pointer;
+	margin-bottom:4px;
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+.question label{
+	color: #334350;
+	cursor: pointer;
+}
+
+.next, .finish{
+	background-color: #AD3F26;
+	cursor: pointer;
+    display: table;
+    margin: 16px auto 0 auto;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+
+.next h3, .finish h3{
+	text-align: center;
+	color: #D3C8B4;
+}
+
+.final{
+	display: none;
+	height:400px;
+	width:850px;
+	text-align: center;
+}
+
+.final img{
+	height:200px;
+}
+
+.final h2.top {
+	margin-bottom: 1em;
+}
+
+.final h2{
+	margin: 0.5em 0 0 0;
+    color: #D3C8B4;
+}
+
+.final p{
+	font-size: 16px;
+	color:#404040;
+}
+
+.load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display:none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  float: left;
+  margin: 0 5px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: fx 1000ms ease infinite 0ms;
+          animation: fx 1000ms ease infinite 0ms;
+}
+.dot:nth-child(2) {
+  -webkit-animation: fx 1000ms ease infinite 300ms;
+          animation: fx 1000ms ease infinite 300ms;
+}
+.dot:nth-child(3) {
+  -webkit-animation: fx 1000ms ease infinite 600ms;
+          animation: fx 1000ms ease infinite 600ms;
+}
+@-webkit-keyframes fx {
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fx {
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
