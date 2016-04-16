@@ -116,7 +116,7 @@ body{
 
 .final{
 	display: none;
-	height:400px;
+	height:420px;
 	width:850px;
 	text-align: center;
 }
@@ -137,6 +137,24 @@ body{
 .final p{
 	font-size: 16px;
 	color:#404040;
+}
+
+.addForm{
+	margin-top: 32px;
+}
+
+.addForm .submit{
+	background-color: #334350;
+	color:white;
+	border:none;
+	font-size: 14px;
+	padding: 4px 8px;
+	cursor: pointer;
+}
+
+.addForm p{
+	font-size: 16px;
+	color: #334350;
 }
 
 .load {
